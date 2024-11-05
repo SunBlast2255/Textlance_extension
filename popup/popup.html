@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>TextLance - your personal note vault</title>
+</head>
+<body>
+    <div class="wrapper">
+
+        <!--Menu-->
+
+        <header id="header">
+            <div class="title">
+                <h2>Textlance 1.0</h2>
+                <span>Total notes: <span id="notes">0</span> </span>
+            </div>
+
+            <div class="toolbar">
+                <img id="add-btn" class="icon-big" title="New" alt="New" src="../images/new.png">
+                <img id="del-all" class="icon-big" title="Delete all" alt="Delete all" src="../images/dell-all.png">
+                <img id="settings-btn" class="icon-big" title="Settings" alt="Settings" src="../images/settings.png">
+                <img id="exit-btn" class="icon-big" title="Exit" alt="Exit" src="../images/exit.png">
+            </div>
+        </header>
+
+        <main class="flex main" id="main">
+            <div class="note-container" id="note-container">
+                <!--Notes will appear here-->
+            </div>
+        </main>
+
+
+        <!--Editor-->
+
+        <div class="modal" id="editor-window">
+            <div class="header-modal">
+                <div class="flex center" style="gap: 10px;">
+                    <img id="exit-editor-btn" class="icon-big" title="Close" alt="Close" src="../images/close.png">
+                    <img id="save-btn" class="icon-big" title="Save" alt="Save" src="../images/save.png">
+                    <img id="copy-btn-editor" class="icon-big" title="Copy" alt="Copy" src="../images/copy.png">
+                    <img id="paste-btn-editor" class="icon-big" title="Paste" alt="Paste" src="../images/paste.png">
+                    <img id="cut-btn-editor" class="icon-big" title="Cut" alt="Cut" src="../images/cut.png">
+                    <img id="select-btn-editor" class="icon-big" title="Select All" alt="Select-All" src="../images/select.png">
+                </div>
+    
+                <div class="flex center">
+                    <span>Ln: <span id="ln-editor">1</span>, Col: <span id="col-editor">1</span> </span>
+                </div>
+            </div>
+
+            <div class="modal-main">
+                <textarea wrap="off" id="textarea" placeholder="Type something in here..."></textarea>
+            </div>
+        </div>
+
+        <!--Viewer-->
+
+        <div class="modal" id="viewer-window">
+            <div class="header-modal">
+                <div class="flex center" style="gap: 10px;">
+                    <img id="exit-viewer-btn" class="icon-big" title="Close" alt="Close" src="../images/close.png">
+                    <img id="copy-viewer-text" class="icon-big" title="Copy All" alt="Copy-All" src="../images/copy.png">
+                    <img id="copy-selected-viewer-text" class="icon-big" title="Copy Selected" alt="Copy-Selected" src="../images/copy-selected.png">
+                </div>
+            </div>
+
+            <div class="modal-main">
+                <textarea wrap="off" readonly id="textarea-readonly"></textarea>
+            </div>
+        </div>
+
+        <!--Settings-->
+
+        <div class="modal" id="settings-window">
+            <header class="header-modal">
+                <div class="flex center">
+                    <h1>Settings</h1>
+                </div>
+
+                <div class="flex center">
+                    <img id="apply-btn" class="icon-big" title="Apply" alt="Apply" src="../images/apply.png">
+                </div>
+            </header>
+
+            <div class="modal-main">
+                <div class="flex center column" style="padding: 5px; gap: 10px;">
+                    <div class="settings-item">
+                        <label class="mid" for="font-size">Font-size:</label>
+                        <input type="number" id="font-size" title="Set font-size for textarea (px)">
+                    </div>
+
+                    <div class="settings-item">
+                        <label class="mid" for="word-wrap">Word Wrapping:</label>
+                        <input type="checkbox" id="wrapping" title="Turn on/off word wrapping for textarea">
+                    </div>
+
+                    <div class="settings-item">
+                        <button id="reset-settings">Reset settings</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Context-->
+
+    <div class="context-menu" id="context">
+        <div class="context-menu-item" id="copy-context">
+            <span>Copy</span>
+        </div>
+        <div class="context-menu-item" id="paste-context">
+            <span>Paste</span>
+        </div>
+        <div class="context-menu-item" id="cut-context">
+            <span>Cut</span>
+        </div>
+        <div class="context-menu-item" id="select-context">
+            <span>Select All</span>
+        </div>
+    </div>
+
+    <!--Context viewer-->
+
+    <div class="context-menu" id="context-viewer">
+        <div class="context-menu-item" id="copy-all-context">
+            <span>Copy All</span>
+        </div>
+        <div class="context-menu-item" id="copy-selected-context">
+            <span>Copy Selected</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
