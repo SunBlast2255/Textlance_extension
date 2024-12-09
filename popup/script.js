@@ -33,7 +33,7 @@ function displayNote(){
                                 div.setAttribute("id", noteId);
 
                                 let span = document.createElement("span");
-                                span.innerHTML = notes[noteId];
+                                span.innerHTML = escapeHTML(notes[noteId]);
                                 div.appendChild(span);
 
                                 let icons = document.createElement("div");
@@ -311,8 +311,21 @@ document.getElementById("save-btn").addEventListener("click", function(){
     });
 });
 
-//
+function escapeHTML(str) {
+    return str.replace(/[&<>"'`]/g, function(match) {
+      const escapeMap = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+        '`': '&#96;'
+      };
+      return escapeMap[match];
+    });
+  }
 
+//Listeners
 document.getElementById("copy-btn-editor").addEventListener("click", function(){
     copySelected("textarea")
 });
@@ -350,7 +363,7 @@ document.getElementById("copy-selected-viewer-text").addEventListener("click", f
 //Context
 
 window.oncontextmenu = function(){
-    //return false;
+    return false;
 }
 
 function openContextMenu(textareaID, contextID, e){
