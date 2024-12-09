@@ -10,7 +10,7 @@ function displayNote(){
 
             let span = document.createElement("span");
             span.innerHTML = "You have no notes";
-            span.style = "margin: 5px; font-size: 16px; color: #D4D4D4;"
+            span.classList.add("no-notes-msg")
             container.appendChild(span);
 
             chrome.storage.local.set({"Count": "0" }, function(){});
@@ -18,9 +18,6 @@ function displayNote(){
         }else if(result.Count > 0 && result.Count != undefined && result.Count != null){
             const container = document.getElementById("note-container");
             container.innerHTML = "";
-            container.style.alignItems = "flex-start";
-            container.style.justifyContent = "center";
-
 
             let count;
 
@@ -464,5 +461,3 @@ document.getElementById("textarea").addEventListener("keydown", function(e) {
         }, 0);
     }
 });
-
-
