@@ -363,7 +363,7 @@ document.getElementById("copy-selected-viewer-text").addEventListener("click", f
 //Context
 
 window.oncontextmenu = function(){
-    return false;
+    //return false;
 }
 
 function openContextMenu(textareaID, contextID, e){
